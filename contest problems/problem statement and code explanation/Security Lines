@@ -1,0 +1,99 @@
+🧩 Problem Theme:
+You're at the airport and there's a line of N security counters (queues). Each queue has a number of people already standing. You're starting at the first queue (queue 1, index 0) and you want to complete the security check as early as possible.
+
+At each second, one person is processed (i.e., finishes security) from each queue.
+
+You can:
+
+Stay in your current queue.
+
+Move left (if not at the first queue).
+
+Move right (if not at the last queue).
+
+Each move or stay takes 1 second.
+The goal is to complete your own security check, which means you must reach the front of a queue and then be processed.
+
+🔁 How it works:
+You're initially at queue 1, at the back of the queue, so there are A[0] - 1 people ahead of you.
+
+Every second:
+
+Each queue processes 1 person (if it has people).
+
+You can choose to:
+
+Stay (and move 1 position ahead).
+
+Move to the left queue (queue index -1), and stand at the back of that line.
+
+Move to the right queue (queue index +1), and stand at the back of that line.
+
+After joining a new queue, note that time has passed, so some people may have already been processed in that new queue. So the number of people ahead in that new queue is max(0, A[q] - (t + 1)).
+
+You want to minimize the total time it takes for your own security process to finish.
+
+🎯 Objective:
+For each test case, output the minimum number of seconds required for you to finish your security check, starting from queue 1.
+
+🔢 Input:
+T test cases.
+
+For each test case:
+
+An integer N (number of queues).
+
+A list of N integers A, where A[i] is the number of people initially in the i-th queue.
+
+🧾 Output:
+For each test case, print a single integer — the minimum time (in seconds) to finish your security check.
+
+🧠 Key Observations:
+Since you can move between queues, sometimes it's faster to switch to a queue with fewer people (even if it means taking a detour).
+
+But moving to another queue takes time, and during that time people in other queues are also being processed, so your position is dynamic.
+
+This is essentially a BFS-like problem, where you're exploring time × queue combinations to find the minimum time to reach a -1 position (i.e., front of the queue and processed).
+
+✅ Example:
+Input:
+
+2
+4
+5 2 1 3
+2
+4 5
+Output:
+
+2
+4
+Explanation for test case 1:
+
+Queues: [5, 2, 1, 3]
+
+Start at queue 0: 4 people ahead
+
+At time 1: move to queue 2 (index 2), now that queue has only 1 - 1 = 0 people left.
+
+At time 2: you're at front of queue 2 and get processed.
+
+Hence, answer is 2 seconds.
+
+This problem mixes simulation with shortest-path logic. You're finding the fastest way to reach the "exit" point (being processed), considering how queues change dynamically over time.
+
+
+CODE EXPLAINATION:
+
+This Java code simulates moving through airport security queues to find the minimum time to complete security. Each test case starts with an integer N, the number of queues, followed by an array A where A[i] is the initial number of people in queue i.
+
+The key structure is a 2D array minPos[time][queue] storing the minimum number of people strictly ahead of the person at each second and each queue. Initially, the person is in queue 0 with A[0] - 1 people ahead.
+
+For each second t (up to 1005), and each queue q, three transitions are simulated:
+
+Stay in queue q: People ahead decrease by one.
+
+Move left to queue q - 1 (if exists): Number ahead is A[q - 1] - (t + 1), capped at -1 if already completed.
+
+Move right to queue q + 1: Similar logic as left move.
+
+The process stops and returns t as soon as any minPos[t][q] == -1, meaning the person has completed security. If no such state is reached within the time limit, -1 is returned. Fast I/O is handled using BufferedReader and StringTokenizer.
