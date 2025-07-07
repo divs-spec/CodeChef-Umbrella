@@ -1,0 +1,42 @@
+Add Permutation
+You are given a 1-indexed permutation 
+P of the integers from 1 to N.
+From this permutation, construct an array 
+A of size N such that:
+𝐴𝑖 = 𝑃𝑖 + 𝑖
+Let f(P) be the number of distinct elements in the array 𝐴.
+
+Example
+Let 
+P=[3,4,1,2]
+
+Then the constructed array is:
+
+A=[3+1,4+2,1+3,2+4]=[4,6,4,6]
+So, the distinct values in 
+𝐴
+A are {4, 6}
+Hence, 
+f(P)=2
+
+Task
+Given integers N and K, you must construct a permutation 
+P of integers from 1 to N such that:
+f(P)=K
+You only need to output one such permutation.
+It is guaranteed that at least one valid solution always exists.
+
+Input Format
+The first line contains an integer T – the number of test cases.
+
+Each of the next T lines contains two integers N and K.
+
+Output Format
+For each test case, output a line with N integers – a valid permutation 
+P of [1,2,...,N] such that f(P)=K.
+
+If multiple answers are possible, any valid one will be accepted.
+
+Constraints
+1≤T≤100
+1≤K≤N≤100
