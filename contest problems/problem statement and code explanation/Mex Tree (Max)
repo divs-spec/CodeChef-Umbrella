@@ -1,0 +1,72 @@
+https://www.codechef.com/problems/MEXTREEMX
+
+This Java code solves a tree problem using a smart technique called Heavy-Light Decomposition (HLD) and Dynamic Programming (DP). Let’s break it down in simple terms.
+
+🟩 Problem Overview
+You are given a tree (an acyclic connected graph). For every pair of nodes (x, y), we want to calculate a certain value based on how the tree is split into two parts when moving from x to y. The goal is to find the maximum such value across all possible pairs.
+
+🟩 Tree Representation and HLD
+The class HLD (Heavy-Light Decomposition) is used to break the tree into chains for fast calculations.
+
+Important arrays in HLD:
+
+siz[]: Size of subtree for every node.
+
+top[]: Topmost node of the current chain.
+
+parent[]: Parent of each node.
+
+dep[]: Depth of each node.
+
+in[] and out[]: Track entry/exit times in DFS.
+
+adj[]: Adjacency list of the graph.
+
+The work(root) method starts the decomposition from the root (node 0 here). It runs two DFS traversals:
+
+dfs1: Computes subtree sizes and prepares heavy edges.
+
+dfs2: Sets up chains and time indices.
+
+This makes future calculations on the tree much easier.
+
+🟩 Building Parent Table
+We create a table par[x][y] where for each source x, par[x][y] gives the parent of y in the DFS tree rooted at x. This helps us move back in the tree when calculating answers.
+
+🟩 DP to Solve the Problem
+We define a DP function calc(x, y) that calculates the desired value for the node pair (x, y).
+
+If x == y, we calculate how many pairs of nodes lie in different subtrees of x. This involves subtracting combinations inside each subtree from the total.
+
+If x != y, we consider two ways:
+
+Move x one step toward y and solve.
+
+Move y one step toward x and solve.
+
+At each step, we add the product of two subtree sizes — one from x’s side and one from y’s side. This models the number of node pairs that lie in different parts.
+
+🟩 Main Logic
+We call calc(i, j) for every pair (i, j) in the tree and keep track of the maximum result.
+
+Finally, we print the maximum value as the answer.
+
+🟩 Helper Methods
+reverse(int[] arr): Reverses an array (not used in this version).
+
+dfsParent(...): Builds the par[][] table.
+
+rootedSize(...): Finds the size of a subtree with respect to a specific root. Important for understanding how the tree is split between x and y.
+
+🟩 Summary
+This code:
+
+Builds the tree structure.
+
+Prepares helper data using DFS and HLD.
+
+Uses memoized DP to avoid repeated calculations.
+
+Checks all node pairs and picks the best answer.
+
+It’s efficient due to HLD and works well for trees with up to 2000 nodes.
