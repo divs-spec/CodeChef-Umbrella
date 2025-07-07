@@ -1,0 +1,99 @@
+https://www.codechef.com/problems/NO3P
+
+🔷 Problem Title: No Three Consecutive Primes
+You are given a task to construct a sequence of N positive integers such that:
+
+The sequence contains only distinct numbers.
+
+The sequence does not contain three prime numbers in a row (i.e., three consecutive elements all being prime).
+
+The maximum number in your sequence is as small as possible.
+
+In simpler terms, you want to build a list of N different numbers that:
+
+Avoids any triple of primes placed one after another.
+
+Tries to keep all the numbers as small as possible.
+
+✅ What are prime numbers?
+A prime number is a number greater than 1 that has no divisors other than 1 and itself.
+
+Examples of primes:
+2, 3, 5, 7, 11, 13, 17, 19, 23, ...
+
+Examples of non-primes (also called composite numbers):
+4, 6, 8, 9, 10, 12, ...
+
+🔶 What does “no three consecutive primes” mean?
+If the sequence is:
+
+[2, 3, 5] — ❌ invalid (all three are primes, and they are next to each other)
+
+[2, 3, 4] — ✅ valid (only two primes in a row)
+
+[3, 4, 5] — ✅ valid (only 2 primes with a non-prime between)
+
+🧩 Your Goal
+Build such a list of size N and print it.
+Also, make sure:
+
+All numbers are different
+
+No three primes are together
+
+The numbers are as small as possible
+
+🔢 Input Format
+One line with an integer N (1 ≤ N ≤ 1000)
+
+📤 Output Format
+Print N distinct integers separated by spaces
+
+The sequence must follow the rules
+
+🤔 Strategy
+To build such a sequence, here’s a simple idea:
+
+Start adding numbers from 1 onwards.
+
+Keep track of how many primes are placed in a row.
+
+If you’ve already placed 2 primes in a row, skip the next prime and add a non-prime instead.
+
+Repeat until the sequence has N elements.
+
+This way, you maximize the number of small values, while making sure three primes never appear together.
+
+🧪 Example
+If N = 5, a possible valid sequence is:
+
+2 3 4 5 6
+
+2 and 3 are prime ✅
+
+4 is not prime ✅
+
+5 is prime ✅
+
+6 is not prime ✅
+=> No three primes in a row ❇️
+
+Another valid sequence: 1 2 3 5 6
+
+There can be many valid answers as long as all conditions are followed.
+
+🧠 Important Notes
+You must print the actual sequence, not just count it.
+
+The smallest maximum value in the list is preferred.
+
+So always try to use the smallest possible numbers.
+
+📌 Summary
+Create a list of N distinct integers.
+
+Don’t allow 3 primes next to each other.
+
+Use the smallest numbers you can.
+
+Print the sequence.
