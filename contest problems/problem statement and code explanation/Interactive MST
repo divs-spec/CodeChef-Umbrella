@@ -1,1 +1,64 @@
 https://www.codechef.com/problems/INTERMST
+
+Overview:
+The code solves a problem involving graphs, specifically trees (connected graphs with no cycles), using bitmasking and dynamic programming (DP). 
+For each test case, it tries to find the best way to cover the entire graph using tree subgraphs, maximizing a certain score, and ultimately calculates a final value to print.
+
+Step-by-Step Breakdown:
+Input Reading:
+The number of test cases T is read.
+
+For each test case:
+Two integers are read: n = number of nodes, m = number of edges.
+Two n x n boolean arrays are initialized:
+ls[i][j] = true if there's any edge between node i and j.
+ps[i][j] = true if the edge between i and j has weight 0.
+A variable tots keeps track of how many 0-weight edges exist.
+
+Storing the Graph:
+For each edge:
+The edge info is read: nodes u, v, and weight w.
+ls[u][v] is marked true to indicate an edge exists.
+If the weight is 0, ps[u][v] is also marked and tots is incremented.
+
+Finding Valid Trees Using Bitmasking:
+There are 2^n possible subsets of nodes (using a bitmask of n bits).
+
+For each subset mask:
+Count how many nodes (vcnt) and edges (ecnt) are in this subset.
+Also count how many 0-weight edges (zcnt) are in it.
+If the number of edges is not equal to vcnt - 1, it's not a tree.
+
+Then, check if it's connected (a real tree):
+Use BFS to traverse from any node in the subset.
+If all nodes are reachable, it's a tree.
+Store trees[mask] = true and set val[mask] = 2 * zcnt + 1.
+
+DP Over Subsets:
+Initialize a DP array dp[mask] where mask is a bitmask of selected nodes.
+dp[0] = 0 (base case).
+
+For every mask, try splitting it into valid tree submasks:
+For each submask sub of mask:
+If sub includes the first node of mask, is a valid tree, and mask ^ sub (remaining nodes) has a DP value:
+Update dp[mask] to be the max of its current value and dp[mask ^ sub] + val[sub].
+
+Final Output:
+The goal is to partition the full graph (mask = full - 1) into tree components to maximize the total val.
+
+The final result is:
+Total 0-weight edges+n−dp[full - 1]
+Why this formula? Because we want to reduce dp[full - 1] from the total (larger dp = better solution).
+
+In Simple Words:
+The code finds all possible tree subgraphs in the graph.
+It tries to cover the entire graph using such trees.
+Each tree has a "score" based on how many 0-weight edges it includes.
+It uses dynamic programming to combine these tree subgraphs efficiently.
+In the end, it calculates a result based on how well we covered the graph with tree pieces.
+
+Key Concepts Used:
+Bitmasking to represent subsets of nodes.
+Graph traversal (BFS) to check if a subset is connected.
+DP on subsets to find the best way to split the graph.
+Greedy idea by maximizing contribution of zero-weight edges in trees.
