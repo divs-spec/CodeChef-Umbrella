@@ -1,0 +1,166 @@
+https://www.codechef.com/problems/PARTMIN
+
+🔷 Problem Summary:
+You are given an array A of length N. 
+Your task is to divide this array into K non-empty contiguous parts such that the maximum sum among all the parts is as small as possible.
+
+In simpler terms, you need to cut the array into K continuous sections. 
+For each section, calculate the sum of its elements. 
+Among all the K sections, the section with the largest sum matters the most — and you want to minimize this largest sum.
+
+🔢 Example:
+Let’s say the array is:
+A = [1, 2, 3, 4, 5] and K = 2
+
+You can divide it like:
+
+[1, 2, 3] and [4, 5] → sums are 6 and 9 → max is 9
+
+[1, 2] and [3, 4, 5] → sums are 3 and 12 → max is 12
+
+[1] and [2, 3, 4, 5] → sums are 1 and 14 → max is 14
+
+[1, 2, 3, 4] and [5] → sums are 10 and 5 → max is 10
+
+Among these, the first partition gives the smallest maximum sum, which is 9. So, the answer is 9.
+
+📌 What You Need to Do:
+Given the array and the number K, find the minimum possible value of the maximum sum in any valid partition into K parts.
+
+⚠️ Constraints:
+The array can be long (up to 10⁵ elements), so brute force won't work.
+
+You need an efficient algorithm, ideally using binary search.
+
+🧠 How to Think About It:
+Let’s look at the core idea:
+
+The minimum possible value of the largest sum can't be less than the maximum element in the array.
+
+The maximum possible value of the largest sum is the sum of the whole array.
+
+So we can use binary search between these two values to find the answer.
+
+💡 Algorithm Outline:
+Set low = max(A) and high = sum(A)
+
+While low < high, do:
+
+Set mid = (low + high) / 2
+
+Try to check if we can split the array into K or fewer parts with each part sum ≤ mid
+
+If it’s possible, we try a smaller mid (to minimize)
+
+If it’s not possible, we increase mid
+
+Finally, low will be the minimum max-sum you can get
+
+✅ Input Format:
+First line: Integer T — number of test cases
+
+For each test case:
+
+First line: Two integers N and K
+
+Second line: N space-separated integers of array A
+
+📤 Output Format:
+For each test case, print the answer — the minimum possible maximum part sum.
+
+✨ Summary:
+Divide the array into K parts.
+
+Minimize the largest sum among those parts.
+
+Use binary search and greedy partitioning to find the optimal value.
+
+🔷 Problem Summary
+You’re given a tree with N nodes. Each node has either a number from 1 to N or a zero, meaning it's missing a value.
+
+Your goal is to find the smallest possible integer k (k ≥ 2) such that the number k can exist in the tree, following these two rules:
+
+If k is already in the tree, then its position (node) must satisfy some neighborhood conditions.
+
+If k is not in the tree, we want to insert it into a zero node (a node with value 0) such that it satisfies the same kind of condition.
+
+✅ Key Conditions (in simple terms)
+For a node u with value k to be valid:
+
+All its neighbors must have numbers less than or equal to k.
+
+If any neighbor has value 0, we must have enough smaller missing numbers to fill those zeros using numbers < k.
+
+🧩 What This Code Does
+✅ 1. Input Reading
+It reads the number of test cases.
+
+For each test case:
+
+Reads the number of nodes N.
+
+Reads the initial array A[1..N] of node values (some values may be 0).
+
+Builds the tree using N-1 edges.
+
+✅ 2. Preprocessing
+hasVal[v]: Checks whether the value v is already present in the tree.
+
+pos[v]: Stores the position (index) where value v is located.
+
+prefix[v]: Counts how many values from 1 to v are already in the tree.
+
+missingSmall[k]: For each k, it tells how many values smaller than k are missing in the tree.
+
+missingList: Stores all missing values in sorted order.
+
+✅ 3. Neighbors Analysis
+For each node u, the code calculates:
+
+M[u]: The maximum number among u's neighbors that are non-zero.
+
+z[u]: The count of neighbors of u that have value 0.
+
+This helps later when checking if k can go at node u.
+
+✅ 4. Case 1: k Already Present in the Tree
+For all k ≥ 2 that are already present, the code checks:
+
+Are all neighbors ≤ k?
+
+Are there enough small missing values to fill any 0s next to this node?
+
+If yes, we store k as a candidate.
+
+✅ 5. Case 2: k Is Missing and Must Be Placed
+We consider only nodes with value 0.
+
+For each such node u, we:
+
+Check how many zeros it’s connected to (z[u]).
+
+Find the smallest k such that:
+
+We have at least z[u] missing values < k.
+
+All known neighbors of u have value ≤ k.
+
+Binary search is used here to speed things up.
+
+From these, we pick the smallest valid k from the missingList.
+
+✅ 6. Final Answer
+The answer is the minimum valid k from both Case 1 and Case 2.
+
+If nothing works, the answer is N + 1.
+
+📌 Summary
+This code:
+
+Processes a tree with partially known numbers.
+
+Figures out the smallest k ≥ 2 that can exist in the tree.
+
+Uses neighbor checks, prefix sums, and binary search for efficiency.
+
+Works for multiple test cases.
