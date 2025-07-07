@@ -1,0 +1,83 @@
+https://www.codechef.com/problems/NODDSM
+
+
+🔷 Problem Title: NODDSM – Number of Odd Sum Subsets in a Matrix
+You are given a grid (matrix) of size N x M. Each cell in the grid contains an integer. Your task is to count how many submatrices (continuous rectangular blocks inside the grid) have an odd sum of elements.
+
+🟦 What is a submatrix?
+A submatrix is like cutting out a rectangular piece of the grid.
+For example, if your grid is:
+1 2
+3 4
+Then the submatrices could be:
+
+Single cells: [1], [2], [3], [4]
+
+Rows: [1 2], [3 4]
+
+Columns: [1 3], [2 4]
+
+The whole matrix: [1 2; 3 4]
+
+There are many possible submatrices, and you need to check each one to see if the sum of its elements is odd.
+
+🟨 What is an odd sum?
+A number is odd if it cannot be divided by 2 evenly.
+Examples: 1, 3, 5, 7, 9 are odd.
+So if a submatrix has a total sum like 3, 11, or 25, it qualifies.
+
+🟩 Your Goal
+Count all submatrices in the given matrix whose total sum is odd.
+
+But the matrix can be large (up to 2000 x 2000), so you cannot check all submatrices one by one. That would take too long (billions of operations).
+
+⚠️ Challenge
+A brute-force way (checking every possible submatrix) is too slow.
+
+You need to be smart about how to count the number of odd-sum submatrices efficiently.
+
+The problem is not asking for the sum, just the number of such submatrices.
+
+You must use fast mathematical or algorithmic techniques like:
+
+Prefix sums
+
+Counting even/odd parity
+
+Matrix compression (e.g., using XOR or sum modulo 2)
+
+🔢 Input Format
+First line: Two integers N (rows) and M (columns)
+
+Next N lines: Each line has M integers representing the grid
+
+✅ Output Format
+A single integer: The total number of submatrices with an odd sum
+
+🧠 Hint
+Try reducing the problem to counting the number of subarrays with odd sums in 1D first.
+Then think about how to extend that to 2D.
+
+Some useful ideas:
+
+Use prefix sums modulo 2 (even or odd)
+
+Compress rows into a 1D array and reuse 1D logic
+
+Count even/odd prefix sum combinations
+
+🔒 Constraints
+1 ≤ N, M ≤ 2000
+
+Matrix values can be up to ±10^4
+
+Your solution must run fast even on the largest cases
+
+📌 Summary
+You are given a matrix.
+
+Count how many rectangular submatrices have an odd total sum.
+
+Be efficient — brute force won’t work.
+
+Use mathematical tricks to solve it smartly.
