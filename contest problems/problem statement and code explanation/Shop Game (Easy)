@@ -1,0 +1,87 @@
+https://www.codechef.com/problems/SHOPGAMEEZ
+
+Overview:
+This Java program solves a problem related to binary strings and selecting the most valuable elements based on a cost. 
+The idea is to maximize the total cost by picking the top K elements, possibly adjusting the selection under certain conditions.
+
+Step-by-step Explanation:
+Input Reading:
+
+First, the program reads the number of test cases T.
+
+For each test case, it reads:
+
+Two integers: N (length of the array) and K (number of elements to pick).
+
+An array of integers called cost of size N.
+
+A binary string A of length N.
+
+Flip and Reverse Logic:
+
+If the K-th character (1-indexed) of string A is '1', we:
+
+Flip the binary string: '0' becomes '1', and '1' becomes '0'.
+
+Reverse the cost array.
+
+This ensures we always handle the case when A[K-1] is '0'.
+
+Counting Trailing Zeros:
+
+The program counts how many continuous '0' characters appear just before and including index K-1 from the right.
+
+This count c is used to calculate blocked = K - c + 1, which defines a "blocked region" — the last blocked elements of the array must be handled specially.
+
+Picking Top K Costs:
+
+The program stores (cost, index) pairs in a list and sorts them in descending order of cost.
+
+It then picks the top K elements and calculates their total cost.
+
+It also keeps track of the indices of these selected items using a Set.
+
+Checking the Blocked Region:
+
+The program checks whether all indices in the blocked region (last blocked positions) are included in the top K selection.
+
+If any are missing, we don’t need to adjust.
+
+If all are present, we try to swap out the cheapest one in that region with a more expensive one outside (if possible) to increase the total.
+
+Swapping Logic (if needed):
+
+Find the smallest cost among selected items within the blocked region.
+
+Find the largest cost among the items not selected.
+
+If we can improve by swapping the two, do so by updating the total cost.
+
+Print Final Answer:
+
+Print the total % MOD (with MOD = 1_000_000_007) to handle large numbers.
+
+Helper Functions:
+flipBinary(String A):
+
+Converts every '0' in the string to '1', and every '1' to '0'.
+
+reverse(int[] arr):
+
+Reverses the elements of the cost array.
+
+In Simple Words:
+For each test case:
+
+You have a cost array and a binary string.
+
+You want to pick K values from the array with the highest cost.
+
+But if a certain bit is '1', you flip the string and reverse the costs.
+
+There's a special region at the end that might force some elements to be included.
+
+If the forced elements are all in your selection, you try to swap the weakest one out for a stronger one elsewhere.
+
+Finally, print the best total cost possible.
+
