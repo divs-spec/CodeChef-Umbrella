@@ -1,0 +1,114 @@
+✅ Problem Name: Marble Collection
+Link: https://www.codechef.com/START195D/problems/MARBCOLL
+
+🧩 Problem Summary (in simple words):
+You are a marble collector.
+
+There are M total marble types available in the world.
+
+You already have N marbles, but some of them may be of the same type.
+
+You're given a list of the types of the marbles you own.
+
+Your task:
+Figure out how many marble types you are still missing from your collection.
+
+📝 Input Format:
+For each test case:
+
+Two integers N and M
+
+N = number of marbles you have
+
+M = total number of marble types in the world
+
+A list of N integers: each one represents the type of a marble you own
+
+🎯 Goal:
+Count how many types you don’t have yet.
+
+💡 How to Solve (Logic & Approach):
+Ignore duplicates:
+If you have more than one marble of the same type, it still counts as only one type collected.
+→ So we only care about the unique types in your collection.
+
+Use a set or similar structure:
+As you read each marble type, keep track of which unique types you've seen.
+
+Subtract collected types from total types:
+The number of missing types = M - number of unique types collected
+
+🧪 Example Walkthrough:
+Example:
+Input:
+1
+5 7
+1 3 3 2 5
+Step-by-step:
+You have 5 marbles, and there are 7 types in total.
+
+The types you have: 1, 3, 3, 2, 5
+
+Even though 3 appears twice, you only count it once.
+
+So, your unique collected types are: 1, 2, 3, 5 → Total of 4 types collected
+
+Missing types = 7 (total) - 4 (collected) = 3
+
+Output:
+3
+🚀 Final Notes:
+You're simply counting how many unique types you already have.
+
+Then subtract that from the total possible types.
+
+This is a typical set-based or frequency-count problem that tests your ability to ignore duplicates and focus on distinct elements.
+
+✅ What the code is doing (in plain words):
+It starts by reading how many test cases there are.
+You might be asked to repeat the same task for multiple marble collections.
+
+For each test case:
+
+You are told how many marbles you currently have.
+
+And how many different marble types exist in total.
+
+The code reads the types of marbles you own.
+
+Some marbles may be of the same type.
+
+But you are only interested in how many different types you actually have.
+
+To count the different types, it uses a set.
+
+A set is like a bag that automatically ignores duplicates.
+
+So if you add the same type twice, it only counts once.
+
+Once all marbles are added to the set,
+the number of unique types you own is simply the size of that set.
+
+To find how many types you are missing:
+
+Subtract the number of types you own from the total number of types.
+
+This gives the number of types you don’t have yet.
+
+It prints that number as the result.
+
+You now know how many more types you need to complete your collection.
+
+🎯 Intuition Behind It:
+You only care about collecting unique types, not duplicates.
+
+A set is the perfect tool to track uniqueness.
+
+Once you know how many types you have,
+just subtract it from the total to find how many are missing.
+
+🧠 Key Idea:
+You're counting what you already have, and then figuring out what's left to get.
+
+That’s it — a smart, simple, and efficient way to solve the problem.
+
