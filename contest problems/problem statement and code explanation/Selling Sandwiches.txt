@@ -1,0 +1,64 @@
+https://www.codechef.com/START195D/problems/SANDWSHOP
+
+👨‍🍳 What is the problem about?
+Chef sells sandwiches. He earns money by selling them but also spends money to make them.
+
+Each sandwich is sold for A rupees.
+
+To make one sandwich, Chef spends:
+
+B rupees on buns
+
+C rupees on vegetables
+
+Now you are asked:
+
+How much profit or loss does Chef make for one sandwich?
+
+💡 How to think about it?
+To find profit or loss, you simply do this:
+
+Profit = Money Chef gets from selling - Money Chef spends on making
+
+So in this case:
+
+Profit = A - (B + C)
+
+If the result is positive, Chef is making a profit.
+
+If the result is negative, Chef is making a loss.
+
+📘 Example 1
+Let’s say:
+
+A = 1000 (selling price)
+
+B = 200 (bun cost)
+
+C = 200 (vegetable cost)
+
+Chef spends 200 + 200 = 400 to make the sandwich
+He sells it for 1000
+So, his profit = 1000 - 400 = 600
+
+📘 Example 2
+Let’s say:
+
+A = 100 (selling price)
+
+B = 200 (bun cost)
+
+C = 200 (vegetable cost)
+
+Chef spends 400 to make the sandwich
+He sells it for 100
+So, his loss = 100 - 400 = -300
+
+✅ Final Goal
+You just have to:
+
+Take the three numbers (A, B, C) as input
+
+Calculate: A - (B + C)
+
+Print the answer (which shows profit or loss)
