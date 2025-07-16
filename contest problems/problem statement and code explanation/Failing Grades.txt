@@ -1,0 +1,100 @@
+✅ Problem Name: FAIL
+🔗 Link: CodeChef – FAIL : https://www.codechef.com/START195D/problems/FAIL
+
+🧩 Problem Statement (in plain words):
+You are given a list of scores for a student in N different tests.
+
+Your task is to decide:
+
+Did the student ever fall below an average score of 40 at any point?
+
+Important rule:
+
+The student is considered to fail if the average score from the first test up to any point is less than 40.
+
+You need to output:
+
+"No" → if the student fails at any point
+
+"Yes" → if the average never drops below 40
+
+🧠 Approach (How to think about it):
+As you read the scores one by one, keep a running total.
+
+After each new score, calculate the current average of all scores so far.
+
+If at any point, the average is less than 40, mark it as failed.
+
+Continue reading all scores (even if failed), but remember the failure happened.
+
+After reading all scores, print "No" if the student failed, otherwise "Yes".
+
+💡 Intuition Behind the Code:
+The goal is not to calculate the final average, but to monitor the average after each test.
+
+This simulates a real-world grading system where students are expected to maintain a certain average throughout, not just at the end.
+
+Even if the final average is above 40, one bad stretch early on could still mean failing.
+
+✅ Code Explanation (in simple English):
+The code starts by reading the number of test cases.
+
+For each test case:
+
+It reads the number of tests taken (N).
+
+It initializes:
+
+An array to store the scores.
+
+A variable to keep the running sum of scores.
+
+A flag (failed) to check if average ever drops below 40.
+
+It then reads each score one-by-one:
+
+Adds it to the running sum.
+
+Calculates the average so far by dividing the sum by the number of tests so far.
+
+If the average is ever less than 40, the student is considered failed, and the flag is marked.
+
+Even if the student fails early, the code keeps reading the remaining inputs to avoid input mismatch issues.
+
+At the end of the test case:
+
+If the student ever failed, it prints "No".
+
+Otherwise, it prints "Yes".
+
+🧪 Example:
+Input:
+1
+5
+60 35 40 45 50
+Step-by-step:
+Test 1: Avg = 60 → ok
+
+Test 2: Avg = (60 + 35) / 2 = 47.5 → ok
+
+Test 3: Avg = (60 + 35 + 40) / 3 = 45 → ok
+
+Test 4: Avg = ... → still ok
+
+Never dropped below 40 → ✅ Print Yes
+
+Input:
+1
+3
+10 50 100
+Test 1: Avg = 10 → ❌ Already failed
+
+Even if next tests are good, student already failed
+→ ❌ Print No
+
+✅ Summary:
+You're watching the student's average after every test.
+
+If it ever drops below 40 → Fail
+
+The code efficiently checks this by tracking the sum and average after each test.
