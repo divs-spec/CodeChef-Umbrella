@@ -1,0 +1,59 @@
+https://www.codechef.com/problems/STRDEL7
+
+✅ Problem Statement (in simple words):
+You are given a binary string (a string of 0s and 1s).
+
+You can repeat the following operation as many times as you like:
+
+Pick three characters in the string such that:
+
+The first and third characters are the same.
+
+The middle character is different from both.
+
+When you find such a pattern, you are allowed to remove the middle character.
+
+Your goal is to minimize the length of the string by removing as many such characters as possible.
+
+🔍 Goal:
+After performing all possible deletions, print the minimum length the string can become.
+
+You will be given multiple test cases, and you need to do this for each one.
+
+🧠 Approach (Logic in steps):
+Group the string into blocks of consecutive same characters.
+For example, in the string 1010, you have:
+one 1, one 0, one 1, one 0.
+So you can think of it as 4 blocks: [1, 1, 1, 1].
+
+Now observe:
+You can only perform a deletion when there are at least 3 such blocks — because you need three characters for the deletion.
+
+The first and last blocks can never be involved in a full deletion (because there’s no character before or after them), so they will always stay.
+
+For the remaining middle blocks, you can try to remove characters using the rule — and every time you delete one, it merges blocks together.
+
+The final length of the string depends on:
+
+The size of the first and last blocks.
+
+And how many deletions you could do in the middle blocks.
+
+Based on how many blocks there are:
+
+If there are fewer than 3, you can't do any operation, so the answer is the original string length.
+
+If the number of blocks is odd, you can delete a character from every alternate triple, so the result is: sum of the first block + last block.
+
+If the number of blocks is even, you can delete one extra character, so you add 1 more to the result.
+
+✅ Summary:
+Break the string into groups of same digits.
+
+Count how many such groups (blocks) there are.
+
+Use the number of blocks to figure out how many deletions are possible.
+
+Based on that, calculate how many characters are left.
+
+This method avoids brute force and runs quickly, even for large strings.
