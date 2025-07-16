@@ -1,0 +1,69 @@
+https://www.codechef.com/problems/GAMEHD
+
+✅ Problem Statement (in simple words):
+You are given an array of numbers.
+
+You can make k total moves, and in each move, you can do one of two things:
+
+Pick one number from the array and add it to your total.
+
+Add a specific extra value (based on how many numbers you've already picked).
+This extra value increases as you pick more numbers.
+
+Your goal is to choose how many numbers to pick from the array and how many extra values to take, such that:
+
+Total number of moves = k
+
+The sum you collect is as large as possible
+
+You must find the maximum sum you can get for each value of k from 1 to 2×N.
+
+🧠 Approach (step-by-step):
+1. Sort the array in descending order
+This lets you always pick the biggest elements first, which gives a better total.
+
+2. Build a prefix sum
+This allows quick calculation of the sum of the top m elements in constant time.
+
+3. For each value of k from 1 to 2×N:
+Try to split k into two parts:
+
+m: the number of elements you pick from the array
+
+y = k - m: the number of extra bonuses you take
+
+The bonus value increases with each element picked, so the total bonus for y moves is calculated by a formula:
+→ bonus = (y * (2 * m - y - 1)) / 2
+
+You want to find the m that gives the best (maximum) sum for this k.
+
+4. Use binary search to find the best value of m efficiently for each k.
+✅ Code Explanation (what each part does)
+1. Reading input and sorting
+Read the number of test cases.
+
+For each test case:
+
+Read the size of the array and the array elements.
+
+Sort the array in descending order.
+
+2. Compute prefix sums
+Store the sum of the first m largest numbers for m = 1 to n.
+
+3. Loop over k = 1 to 2n
+For each value of k, use binary search to decide how many elements m to take from the array and how many bonuses y = k - m to use.
+
+For each guess of m, compute:
+
+The sum of top m elements.
+
+The bonus value using the formula.
+
+The total value = array sum + bonus.
+
+Keep searching until you find the value of m that gives the best total.
+
+4. Print the result
+For each k, print the maximum total value found.
+
