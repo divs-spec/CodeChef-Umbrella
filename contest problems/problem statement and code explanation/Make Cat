@@ -1,0 +1,31 @@
+🐱 Make Cat
+Chef absolutely adores cats and is always on the lookout for them—even in the most unexpected places.
+
+Today, Chef stumbled upon a string S consisting of exactly 3 lowercase English letters. He wonders:
+
+Can he rearrange the letters of this string to form the word "cat"?
+
+Your task is to help Chef answer this question.
+
+📥 Input Format
+A single line containing the string S, where |S| = 3.
+
+Each character of S is a lowercase English letter ('a' to 'z').
+
+📤 Output Format
+Print YES if it's possible to rearrange the letters of S to form "cat".
+
+Otherwise, print NO.
+
+Output is case-insensitive. So YES, yes, Yes, etc., are all acceptable.
+
+✅ Constraints
+S is exactly 3 characters long.
+
+S contains only lowercase English letters.
+
+💡 Explanation
+In the first example, the letters of "tac" can be rearranged to form "cat", so the answer is YES.
+
+In the second example, the letters of "dog" cannot be rearranged to form "cat", so the answer is NO.
+
