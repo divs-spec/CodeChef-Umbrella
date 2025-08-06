@@ -1,0 +1,71 @@
+https://www.codechef.com/START198D/problems/CUREX
+
+💱 Currency Exchange
+Chef currently possesses a stash of coins:
+
+A₁ gold coins
+
+B₁ silver coins
+
+Chef is allowed to perform any number of the following three operations to transform his coins:
+
+Gold to Silver
+
+Pay 1 gold coin to receive 5 silver coins
+
+Can only be performed if Chef has at least 1 gold coin
+
+Silver to Gold
+
+Pay 5 silver coins to receive 1 gold coin
+
+Can only be performed if Chef has at least 5 silver coins
+
+Discard Pair
+
+Discard 1 gold coin and 1 silver coin
+
+Can only be performed if Chef has at least 1 gold and 1 silver coin
+
+Your task is to determine whether it is possible for Chef to end up with exactly:
+
+A₂ gold coins
+
+B₂ silver coins
+by using the operations described above.
+
+📥 Input Format
+The first line contains an integer T — the number of test cases.
+
+Each of the next T lines contains 4 space-separated integers:
+A₁ B₁ A₂ B₂ — the initial and target number of gold and silver coins, respectively.
+
+📤 Output Format
+For each test case, output YES if Chef can reach the target state, or NO otherwise.
+
+You may print the output in any case (e.g., yes, Yes, NO are all valid).
+
+✅ Constraints
+1 ≤ T ≤ 1000
+
+0 ≤ A₁, B₁, A₂, B₂ ≤ 1000
+
+🔍 Sample Input
+3
+2 10 3 0
+4 5 3 10
+1 2 1 2
+📈 Sample Output
+objectivec
+YES
+YES
+YES
+💡 Explanation
+Test Case 1:
+Convert 5 silver → 1 gold, do this twice. Now: (4, 0). Discard 1 gold + 1 silver twice to reach (3, 0).
+
+Test Case 2:
+Discard 1 gold + 1 silver → (3, 4). Convert 1 gold → 5 silver → (2, 9), then discard (1, 8), then (0, 7), convert silver back.
+
+Test Case 3:
+Already at the target state!
