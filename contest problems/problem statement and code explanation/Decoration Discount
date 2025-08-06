@@ -1,0 +1,33 @@
+https://www.codechef.com/START198D/problems/DECDISC
+
+💐 Decoration Discount
+Chef has decided to spruce up his home with some new decorations. Specifically, he wants to buy exactly two flower vases.
+
+He visits a store that has N vases displayed in a row. The price of the i-th vase is A[i]. It's guaranteed that all prices are even.
+
+However, there's a special discount in the store:
+
+If Chef buys the i-th vase, then the price of the (i+1)-th vase is halved.
+
+This is the only discount available.
+
+Your task is to help Chef determine the minimum total cost of buying two different vases, considering the discount rule.
+
+📥 Input Format
+The first line contains a single integer T — the number of test cases.
+
+Each test case consists of two lines:
+
+The first line contains an integer N — the number of vases in the store.
+
+The second line contains N space-separated even integers A[1], A[2], ..., A[N] — the prices of the vases.
+
+📤 Output Format
+For each test case, output a single line containing the minimum total cost of buying two different vases, considering the applicable discount.
+
+✅ Constraints
+1 ≤ T ≤ 100
+
+2 ≤ N ≤ 100
+
+2 ≤ A[i] ≤ 100, and all A[i] are even
