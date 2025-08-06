@@ -1,0 +1,54 @@
+🔒 Restricted Removals
+You are given two binary arrays, A and B, of lengths N and M respectively.
+
+You can perform the following operation any number of times:
+
+Choose an index i (1 ≤ i ≤ min(|A|, M)) such that
+A[i] == B[i]
+(Here, |A| denotes the current length of array A.)
+
+Remove the element A[i] from A, reducing its length by 1.
+
+After removal, re-index the elements of A starting from 1 without changing their order.
+
+🧩 Example
+Suppose:
+A = [0, 0, 0, 1]
+B = [1, 0]
+You can select i = 2 because A[2] = B[2] = 0.
+
+Remove A[2], so now
+A = [0, 0, 1]
+Re-indexing keeps the order, now A[1] = 0, A[2] = 0, A[3] = 1.
+
+Again, choose i = 2 (valid since A[2] = B[2] = 0) and remove A[2].
+
+Now
+A = [0, 1]
+No further operations are possible.
+
+🎯 Objective
+Determine the minimum possible final length of A after performing these operations optimally.
+
+📥 Input Format
+The first line contains an integer T — the number of test cases.
+
+Each test case consists of three lines:
+
+The first line contains two integers N and M — the initial lengths of arrays A and B.
+
+The second line contains N space-separated integers — the elements of array A.
+
+The third line contains M space-separated integers — the elements of array B.
+
+📤 Output Format
+For each test case, output a single integer on a new line — the minimum achievable length of A after applying the operations optimally.
+
+✅ Constraints
+1 ≤ T ≤ 10^5
+
+1 ≤ M ≤ N ≤ 3 × 10^5
+
+0 ≤ A[i], B[i] ≤ 1
+
+The sum of all N over all test cases does not exceed 3 × 10^5
