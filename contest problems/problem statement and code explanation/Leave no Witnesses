@@ -1,0 +1,85 @@
+https://www.codechef.com/START198D/problems/DISPART
+
+❌ Leave No Witnesses
+You're given a binary string A of length N, consisting of characters '0' and '1'.
+
+We define an integer X to be a witness for the string A if it satisfies the following condition:
+
+🧠 Witness Evaluation Rule
+For a given X (where 1 ≤ X ≤ N), construct two arrays:
+
+S1: Initially empty
+For every index i such that A[i] == '0', append (X & i) to S1
+(here, & is the bitwise AND operation)
+
+S2: Initially empty
+For every index i such that A[i] == '1', append (X | i) to S2
+(here, | is the bitwise OR operation)
+
+After processing all indices i from 1 to N, if:
+
+S1 ∩ S2 == ∅
+(i.e. the two sets have no common elements),
+then X is called a witness for the string A.
+
+🎯 Your Goal
+You are allowed to flip any number of bits in the string A. In one operation, you may:
+
+Choose any index i (1 ≤ i ≤ N)
+
+Flip A[i] from '0' to '1' or from '1' to '0'
+
+Your task is to determine the minimum number of bit flips required to transform A into a binary string such that no integer X from 1 to N is a witness for the new string.
+
+If it's impossible to create such a string, output -1.
+
+📥 Input Format
+The first line contains an integer T — the number of test cases.
+
+Each test case contains two lines:
+
+An integer N — the length of the binary string
+
+A binary string A of length N
+
+📤 Output Format
+For each test case, print a single line:
+
+The minimum number of flips needed so that no integer in [1, N] is a witness for the new string
+
+Or -1 if it's impossible
+
+✅ Constraints
+1 ≤ T ≤ 10⁵ (number of test cases)
+
+1 ≤ N ≤ 2 × 10⁵ (length of each binary string)
+
+A[i] ∈ {'0', '1'}
+
+The total sum of all N across all test cases will not exceed 2 × 10⁵
+
+🔍 Example
+
+Input:
+2
+3
+010
+2
+11
+
+Output:
+1
+-1
+
+💡 Explanation
+
+Test Case 1:
+Original string: 010
+For X = 2, S1 = [2 & 1, 2 & 3] = [0, 2], S2 = [2 | 2] = [2] → intersection not empty
+If you flip the '1' to '0', string becomes 000, and now all S2 are empty.
+So it's possible with 1 flip
+
+Test Case 2:
+No matter what flips are made, some X in [1, N] will remain a witness
+So the answer is -1
+
