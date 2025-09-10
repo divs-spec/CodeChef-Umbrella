@@ -1,0 +1,28 @@
+https://www.codechef.com/problems/COLORB
+
+Problem Statement: Coloured Orbs
+
+Chef starts with:
+
+R red orbs,
+
+B blue orbs,
+
+0 green orbs.
+
+Chef can perform a trade:
+
+Spend 1 red orb and 1 blue orb to obtain 1 green orb.
+
+At the end, Chef’s skill value is determined by the orbs he has:
+
+Each red orb contributes +1 to skill,
+
+Each blue orb contributes +2 to skill,
+
+Each green orb contributes +5 to skill.
+
+Chef wants to maximize his total skill by choosing trades wisely.
+
+Task:
+Given integers R and B, compute the maximum skill Chef can achieve.
