@@ -1,0 +1,25 @@
+https://www.codechef.com/problems/CABRIDE
+
+
+Problem Statement: Chef and the Airport Cabs
+
+Chef and his family want to reach the airport. There are N people in total, including Chef.
+
+A single cab can carry at most 4 people, and the cost of a cab ride for X people is:
+
+cost=max(200,100⋅X) rupees
+
+Chef may book multiple cabs if necessary.
+
+Task:
+Determine the minimum total cost for all N family members to reach the airport if they take cabs optimally.
+
+Input Format:
+
+The first line contains an integer T, the number of test cases.
+
+Each of the next T lines contains an integer N, the number of people in Chef’s family.
+
+Output Format:
+
+For each test case, output a single integer — the minimum total cost.
