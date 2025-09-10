@@ -1,0 +1,18 @@
+https://www.codechef.com/problems/PASSINGGR
+
+Problem Statement: Passing Grade
+
+Chef is one of N students in his university class. His professor likes Chef but dislikes the rest of the class.
+
+After grading the exams, the i-th student has scored A[i] marks. Chef is always student number 1, and the remaining students are numbered from 2 to N.
+
+The professor cannot change the students’ scores, but he can decide the cutoff marks X (0 ≤ X ≤ 100). Any student with marks ≥ X passes, and those with marks < X fail.
+
+The professor’s goal is:
+
+Ensure Chef passes.
+
+Fail as many other students as possible.
+
+Task:
+Determine the minimum number of students who pass if the professor chooses the cutoff optimally to satisfy the above goals.
