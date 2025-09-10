@@ -1,0 +1,25 @@
+https://www.codechef.com/problems/MAXMST7
+
+Problem Statement: Maximum MST
+
+You have a graph where every point is connected to every other point. Each connection (edge) has a number (weight) that tells how “heavy” it is.
+
+The problem is, you know all the numbers, but you don’t know which number belongs to which connection.
+
+Your task is to assign the numbers to the connections in a way that makes the total weight of the minimum spanning tree as large as possible.
+
+A minimum spanning tree is a set of connections that connects all points together without any loops, using exactly enough connections to connect everyone.
+
+Input:
+
+First, the number of test cases.
+
+For each test case:
+
+Number of points in the graph.
+
+A list of all the edge weights.
+
+Output:
+
+For each test case, print the largest possible total weight of the minimum spanning tree.
