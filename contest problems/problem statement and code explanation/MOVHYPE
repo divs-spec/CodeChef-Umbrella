@@ -1,0 +1,53 @@
+Problem Statement :
+ 
+Movie Hype
+
+Chef goes to a movie theater with 2N + 1 seats in a row.
+Seats numbered 1, 3, 5, …, 2N + 1 are occupied
+Seats numbered 2, 4, 6, …, 2N are empty
+Chef can sit in any empty seat.
+Hype Levels
+The person sitting in seat 1 has hype level A₁
+The person sitting in seat 3 has hype level A₂
+
+…
+
+The person sitting in seat 2N + 1 has hype level Aₙ₊₁
+Loudness Rule
+The loudness of an empty seat is the maximum hype level of the two people sitting next to it.
+
+Example:
+Loudness of seat 2 = max(hype of seat 1, hype of seat 3)
+Loudness of seat 4 = max(hype of seat 3, hype of seat 5)
+
+Goal
+Chef wants to choose an empty seat with the minimum loudness.
+
+Input
+Number of test cases T
+For each test case:
+An integer N
+N + 1 integers representing hype levels
+
+Output
+For each test case, print one number: the minimum loudness possible.
+
+Constraints
+1 ≤ T ≤ 100
+1 ≤ N ≤ 100
+1 ≤ hype level ≤ 100
+
+Code Explanation :
+
+First, the program reads an integer T, which is the number of test cases. 
+For each test case, it reads an integer N. After that, it reads N + 1 integers into an array A. 
+This means the array has one more element than N.
+The goal of the program is to examine every pair of consecutive elements in the array. 
+For each pair A[i] and A[i+1], it calculates the larger value between the two using max(A[i], A[i+1]). 
+This value represents the “cost” or “value” of that adjacent pair.
+As it checks each adjacent pair, the program keeps track of the smallest such maximum value. 
+It starts with ans set to a very large number (INT_MAX) and updates it whenever a smaller maximum is found.
+After all adjacent pairs have been processed, ans contains the minimum possible value among all pair-wise maximums. 
+The program then prints this value as the result for the current test case.
+In simple terms, the program looks at all neighboring pairs in the array, finds the bigger number in each pair, and finally outputs the smallest of those bigger numbers. 
+This process is repeated for every test case.
