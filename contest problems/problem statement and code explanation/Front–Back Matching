@@ -1,0 +1,31 @@
+Problem Statement :
+
+Front–Back Matching
+
+You are given a string S of length N, consisting only of lowercase English letters.
+You are allowed to rearrange the characters of S in any order.
+Your task is to determine whether it is possible, after rearranging the string, to make the first and last characters of S the same.
+
+Input Format
+The first line contains a single integer T, the number of test cases.
+For each test case:
+    The first line contains an integer N, the length of the string.
+    The second line contains the string S of length N.
+
+Output Format
+For each test case, print Yes or No on a new line, depending on whether it is possible to rearrange the string so that the first and last characters are equal.
+The output is case-insensitive, so any of the following are accepted:
+yes, YES, yEs, etc.
+
+Code Explanation :
+First, it reads the number of test cases. 
+For every test case, it takes an integer N (the length of the string) and the string S.
+If the length of the string is 1, the program immediately prints “Yes”. 
+This is a special rule defined by the problem, so no further checking is needed in this case.
+For strings longer than one character, the program counts how many times each letter appears in the string. 
+Since the string only contains lowercase English letters, it uses an array of size 26, where each position represents one letter from 'a' to 'z'. 
+As the program goes through the string, it increases the count for each character it sees.
+After counting, the program checks the frequency array to see if any character appears at least twice. 
+If even one character has a frequency of 2 or more, it means the string contains a repeated character, so the program prints “Yes”.
+If all characters appear exactly once, then there are no duplicates in the string, and the program prints “No”.
+In short, the program answers “Yes” if the string has at least one repeated character (or if its length is 1), otherwise it answers “No”.
