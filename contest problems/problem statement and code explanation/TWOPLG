@@ -1,0 +1,52 @@
+Problem Statement :
+
+Two Pile Game
+Alice and Bob are having a tea party! Of course, there must be snacks at a tea party.
+Laid out on the table in front of Alice and Bob are biscuits and cakes.
+Initially, there are:
+X biscuits
+Y cakes
+The two take turns eating snacks, with Alice going first.
+On their turn, a player can do exactly one of the following:
+Eat one biscuit → reduces X by 1, Y stays the same.
+Eat one biscuit and one cake → reduces both X and Y by 1.
+Eat one cake and add one biscuit → reduces Y by 1 and increases X by 1.
+
+Rules:
+The number of biscuits and cakes cannot go negative.
+The player who eats the last snack is satisfied.
+Both players play optimally to maximize their chances of being satisfied.
+
+Task:
+Given the initial values of X and Y, determine who will be satisfied in the end.
+
+Input Format
+The first line contains a single integer T, the number of test cases.
+Each of the next T lines contains two space-separated integers X and Y — the initial number of biscuits and cakes.
+
+Output Format
+For each test case, print the winner’s name: "Alice" or "Bob".
+Case-insensitive output is accepted (e.g., bob, BOB, Alice, ALICE).
+
+Constraints
+1 ≤ T ≤ 10^4
+0 ≤ X, Y ≤ 10^9
+X + Y ≥ 1
+
+
+Code Explanation :
+
+This C++ program is made to check a simple rule for multiple test cases. 
+First, it asks the user how many test cases there will be. 
+This number is stored in the variable T. 
+Then, the program goes through each test case one by one using a while loop.
+For every test case, the program reads two numbers, X and Y. 
+However, it only looks at X to decide the result. 
+The rule is simple: if X is an odd number, the program prints "Alice". 
+If X is an even number, it prints "Bob". The number Y is not used anywhere in the decision.
+The program uses X % 2 == 1 to check if X is odd. 
+Here, % is called the modulo operator and it gives the remainder after dividing by 2. 
+Odd numbers have a remainder of 1, and even numbers have a remainder of 0.
+The lines ios::sync_with_stdio(false); and cin.tie(nullptr); are there to make input and output faster, which is helpful when there are many test cases.
+Finally, after checking all test cases, the program ends with return 0;, which simply means it finished successfully.
+In short, this program reads a number X for each test case and prints "Alice" if X is odd, or "Bob" if X is even, ignoring the second number Y.
