@@ -1,0 +1,49 @@
+Problem Statement :
+
+Upward Path
+
+You are given a grid with 2 rows and N columns.
+The cell at row i and column j is denoted (i, j) and has a value A[i][j].
+You can perform the following operation any number of times (including zero):
+Swap the values within any column.
+Formally, choose a column i (1 ≤ i ≤ N) and swap A[1][i] with A[2][i].
+After performing swaps, you start at cell (1, 1) and want to reach (2, N).
+You can move:
+Right → (x, y+1)
+Down → (x+1, y)
+Movement rules:
+You can only move to a cell with a value greater than or equal to the current cell’s value.
+That is, from (x, y):
+Moving down to (x+1, y) is allowed only if A[x+1][y] ≥ A[x][y].
+Moving right to (x, y+1) is allowed only if A[x][y+1] ≥ A[x][y].
+
+Task:
+Determine whether it is possible to perform swaps so that there exists a valid right-down path from (1, 1) to (2, N) that never decreases in value.
+
+Input Format
+The first line contains a single integer T — the number of test cases.
+Each test case consists of three lines:
+An integer N — the number of columns.
+N space-separated integers — the first row of the grid: A[1][1], A[1][2], …, A[1][N].
+N space-separated integers — the second row of the grid: A[2][1], A[2][2], …, A[2][N].
+
+Output Format
+For each test case, print "Yes" if a valid path is possible, or "No" if it is not.
+Output is case-insensitive, so yes, YES, yEs, etc., are all accepted.
+
+Code Explanation :
+
+This C++ program checks whether it is possible to create a non-decreasing path from the first column to the last column in a two-row grid. 
+Each column has two numbers, a[i] and b[i]. 
+You can choose either number in each column, but the path must go from top to bottom at most once per column, and the numbers along the path must not decrease.
+The program reads the number of test cases T. 
+For each test case, it reads N, the number of columns, and the two arrays a and b.
+It uses two helper arrays:
+- pref[i] stores the minimum value reachable at row 1, column i while maintaining a non-decreasing sequence from the start.
+- suff[i] stores the maximum value reachable at row 2, column i while maintaining a non-decreasing sequence to the end.
+
+The program first fills pref from left to right, trying to choose the smaller number that is not smaller than the previous value. 
+Then it fills suff from right to left, trying to choose the larger number that is not larger than the next value.
+Finally, it checks each column k to see if it’s possible to transition from row 1 to row 2 while maintaining the non-decreasing property. 
+If a valid transition exists, it prints "Yes"; otherwise, "No".
+In short, the program determines if you can walk through the two-row grid from left to right without decreasing numbers, choosing wisely between top and bottom numbers in each column.
